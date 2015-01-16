@@ -7,11 +7,26 @@ import HTMLParser
 import re
 import spotipy.util as util
 from urlparse import urlparse
-
+'''
+Spotify Client id, get it when you create a app at spotify
+'''
 client = 'Client-ID'
+'''
+Spotify Client secret, get it when you create a app at spotify
+'''
 clientsecret = 'Client-Secret'
+'''
+Url to direct the first valid request to spotify, does not need to be a address that works.
+Intended to be the webpage of your application
+'''
 redirecturi='redirect-URL'
+'''
+Spotify username
+'''
 username = 'Spotify Username'
+'''
+Spotify playlist to add tracks to
+'''
 playlist_id = 'Playlist ID'
 
 def reddit_search():
