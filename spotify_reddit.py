@@ -54,6 +54,12 @@ class Reddit(): # Class for Reddit
 					Ex_playlist = url_parse.path.rsplit('/',1)
 					Clean_playlist = Ex_playlist[1].replace(')', '')
 					Spotify().Spotify_Playlist(Clean_playlist)
+					
+				elif '/artist/' in url_parse.path:
+					# Adds artist top-tracks, first 3 only
+					Ex_artist = url_parse.path.rsplit('/',1)
+					Clean_artist = Ex_artist[1].replace(')', '')
+					Spotify().Spotify_Artist(Clean_artist)
 				else:
 					pass
 			else:
@@ -111,6 +117,14 @@ class Spotify(): # Spotify Class
 			# Will be coming
 			print(album_id)
 			print('Function is not yet ready')
+			
+		def Spotify_Artist(self, artist_id):
+			# Adds artist top-tracks, top 3 only
+			sp = spotipy.Spotify()
+			response = sp.artist_top_tracks(artist_id)
+			for track in response['tracks'][:3]:
+				Spotify().Spotify_Track(track['id'])
+				print(track['id'], '-', track['name'])
 
 if __name__ == '__main__':
 	# Choose Subreddit and numbers of post
