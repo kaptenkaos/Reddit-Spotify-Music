@@ -103,7 +103,7 @@ class Spotify(): # Spotify Class
 					results = sp.user_playlist_add_tracks(self.username, self.playlist_id, track_id)
 					print results
 				else:
-					print "Can't get token for", username
+					print "Can't get token for", self.username
 			except:
 				print('Something went wrong... :(')
 			pass
